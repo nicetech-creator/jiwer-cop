@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block app_content %}
+<div class="container text-center">
+  <h3 class="py-4">Jiwer Web</h3>
+  <div class="form-inline d-flex justify-content-between py-4">
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="cb_lower" value="option1">
+      <label class="form-check-label" for="inlineCheckbox1">All lower-case</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="cb_strip_punctuation" value="option2">
+      <label class="form-check-label" for="inlineCheckbox2">Strip punctuation</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="cb_uniform" value="option3">
+      <label class="form-check-label" for="inlineCheckbox3">Uniform numbers</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="cb_strip_words" value="option3">
+      <label class="form-check-label" for="inlineCheckbox3">Strip words</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="cb_strip_spaces" value="option3">
+      <label class="form-check-label" for="inlineCheckbox3">Strip multi spaces</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="cb_replace_whitespace" value="option3">
+      <label class="form-check-label" for="inlineCheckbox3">Replace Whitespace</label>
+    </div>
+    <input type="text" class="form-control" id="t_words" placeholder="placeholder">
+  </div>
+
+  <div class="row py-4">
+    <div class="col-md-6 col-sm-12">
+      <div class="form-group">
+        <label for="ta_truth">Original</label>
+        <textarea class="form-control" id="ta_truth" rows="20"></textarea>
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-12">
+      <div class="form-group">
+        <label for="ta_hypothesis">Transription</label>
+        <textarea class="form-control" id="ta_hypothesis" rows="20"></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="row text-center py-2 d-none" id="div_result">
+    <div class="col-4">WER=<span id="wer"></span>%</div>
+    <div class="col-4">MER=<span id="mer"></span>%</div>
+    <div class="col-4">WIL=<span id="wil"></span>%</div>
+  </div>
+  <div>
+    <button id="btn-analyze">Analyze</button>
+  </div>
+</div>
+{% endblock %}
+
+{% block script %}
+  <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+{% endblock %}
